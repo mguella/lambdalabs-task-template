@@ -17,16 +17,24 @@ The script takes care of creating a VM, copying the task files, executing the ta
 
 - Lambda Labs [GPU Cloud](https://lambdalabs.com/service/gpu-cloud) account
 
+## Setup
+
+1. Retrieve [API key](https://cloud.lambdalabs.com/api-keys) and upload your [SSH key](https://cloud.lambdalabs.com/ssh-keys)
+2. Configure the `.env` file with Lambda Labs keys and VM info (or set them in your environment)
+
 ## Get started
 
-1. Add your code in the `task` folder
-2. Add a `task/run.sh` file to start the task (optional)
-3. Configure the `.env` file with Lambda Labs keys and VM info (or set them in your environment)
-  - retrieve [API key](https://cloud.lambdalabs.com/api-keys)
-  - upload your [SSH key](https://cloud.lambdalabs.com/ssh-keys)
-4. Run the task on the VM with `launch.sh`
+### Interactive session
 
-## Usage 
+1. Launch SSH session on a VM with `launch.sh bash`
+
+### Run task
+
+1. Add your code in the `task` folder (optional)
+2. Add a `task/run.sh` file to start the task (optional)
+3. Run the task on a VM with `launch.sh` (or just your own command with `launch.sh <command>`)
+
+## Script usage 
 
 By default `launch.sh` runs the `task/run.sh` script when the VM is ready.
 You can include initialization and execution in this script and it will run from the `/srv/task` folder that contains all the code data from the local `task` folder.
@@ -49,7 +57,6 @@ Launch custom pipeline
 ```
 ./launch.sh "./init.sh; ./exec_task.sh; ./store_results.sh"
 ```
-
 
 ## Configuration
 
