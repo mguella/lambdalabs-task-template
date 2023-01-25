@@ -6,20 +6,17 @@ The script takes care of creating a VM, copying the task files, executing the ta
 
 ## Requirements
 
-**Packages**
-
-- ssh
-- curl
-- jq
-- sed
-
 **Services**
 
 - Lambda Labs [GPU Cloud](https://lambdalabs.com/service/gpu-cloud) account
 
+**Packages**
+
+- `ssh`, `curl`, `jq`, `sed`
+
 ## Setup
 
-1. Retrieve [API key](https://cloud.lambdalabs.com/api-keys) and upload your [SSH key](https://cloud.lambdalabs.com/ssh-keys)
+1. Retrieve the Lambda Labs [API key](https://cloud.lambdalabs.com/api-keys) and upload your [SSH key](https://cloud.lambdalabs.com/ssh-keys)
 2. Configure the `.env` file with Lambda Labs keys and VM info (or set them in your environment)
 
 ## Get started
@@ -32,7 +29,7 @@ The script takes care of creating a VM, copying the task files, executing the ta
 
 1. Add your code in the `task` folder (optional)
 2. Add a `task/run.sh` file to start the task (optional)
-3. Run the task on a VM with `launch.sh` (or just your own command with `launch.sh <command>`)
+3. Run the task on a VM with `launch.sh` (or run your own command with `launch.sh <command>`)
 
 ## Script usage 
 
@@ -68,13 +65,13 @@ Everything in the folder will be copied over after the VM has started.
 ### Auth
 
 The Lambda Labs API keys can be either set in the `.env` file or directly in your environment.
-If you set them in your environment make sure to remove or comment the entries from the .env file (or remove the whole file) to avoid overrides.
+If you set them in your environment make sure to remove or comment the entries in the .env file (or remove the whole file) to avoid overrides.
 
 ### VM
 
-The VM configuration (both size and region) can also be configured via .env file or environment variable.
+The VM configuration (both size and region) can also be configured via `.env` file or environment variables.
 
-As per auth configuration, when the variables are set directly in the environment and not the `.env` file, they should be removed from the file to avoid overrides.
+As per auth configuration, when the variables are set directly in the environment and not the `.env` file, they should be removed in the file to avoid overrides.
 
 ## Rclone
 
